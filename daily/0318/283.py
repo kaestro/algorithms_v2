@@ -10,8 +10,6 @@ class Solution:
             nums.remove(0)
             nums.append(0)
 
-    # nonzero idx doesn't go forward if it is zero. that is, where the last nonzeroidx
-    # should belong to
     def betterMoveZeros(self, nums: List[int]) -> None:
         lastNonzeroIdx = -1
 
