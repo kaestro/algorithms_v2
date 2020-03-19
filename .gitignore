@@ -1,0 +1,7 @@
+*.exe
+*.txt
+
+.*
+no_review
+reviews
+*test*
