@@ -1,0 +1,9 @@
+*.exe
+*.txt
+
+.*
+no_review
+reviews
+*test*
+__pycache__
+*.pyc
