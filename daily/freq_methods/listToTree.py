@@ -17,3 +17,8 @@ def createTree(treeList: List[int], root: TreeNode, idx: int):
     if rightIdx < len(treeList) and treeList[rightIdx] is not None:
         root.right = TreeNode(treeList[rightIdx])
         createTree(treeList, root.right, rightIdx)
+
+def listToTree(treeList: List[int]) -> TreeNode:
+    root = TreeNode(treeList[0])
+    createTree(treeList, root, 0)
+    return root
