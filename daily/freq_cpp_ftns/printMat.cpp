@@ -13,10 +13,10 @@ void printMat(const vvi& matrix) {
 
     for (int row = 0; row < row_size; ++row) {
         std::cout << "[";
-        for (int col = 0; col < col_size; ++col) {
-            std::cout << matrix[row][col] << (col != col_size - 1 ? " ":"");
+        for (int col = 0; col < col_size - 1; ++col) {
+            std::cout << matrix[row][col] << "\t";
         }
-        std::cout << "]\n";
+        std::cout << matrix[row][col_size - 1] << "]\n";
     }
     std::cout << std::endl;
 }
