@@ -3,8 +3,8 @@ import collections
 class Solution:
     def __init__(self):
         self.points = set()
-        self.rowToCol = collections.defaultdict(list)
-        self.colToRow = collections.defaultdict(list)
+        self.rowToCol = collections.defaultdict(int)
+        self.colToRow = collections.defaultdict(int)
 
 
     def removeStones(self, stones: List[List[int]]) -> int:
