@@ -4,6 +4,8 @@
 .*
 no_review
 reviews
-*test*
 __pycache__
 *.pyc
+
+contest/line*
+contest/programmers
