@@ -6,33 +6,27 @@ using namespace std;
 class Solution {
 public:
     int constrainedSubsetSum(vector<int>& nums, int k) {
-        int idx = -1, n = nums.size();
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] > 0) {
-                idx = i;
-                break;
+        vector<int> dp(nums.size());
+        dp[0] = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            int j = i - k > 0 ? i - k : 0;
+            dp[i] = dp[j];
+            for (j = j + 1; j < i; ++j) {
+                dp[i] = max(dp[i], dp[j]);
             }
+            dp[i] = dp[i] < 0 ? nums[i] : dp[i] + nums[i];
         }
-
-        if (idx == -1) return *max_element(nums.begin(), nums.end());
-        ans += nums[idx];
-
-        while (idx < n) {
-            vector<int> poss;
-            bool flag = false;
-            for (int j = idx + 1; j < n && j <= idx + k; ++j) {
-                if (nums[j] > 0) {
-                    flag = true;
-                    ans += nums[j];
-                    idx = j;
-                    break;
-                } else poss.push_back(nums[j]);
-            }
-
-            if (!flag) {
-                auto it = max_element(poss.begin(), poss.end());
-            }
-        }
+        return *max_element(dp.begin(), dp.end());
     }
 };
+
+int main() {
+    Solution s;
+    vector<int> nums;
+    int k;
+    nums = {10,2,-10,5,20}, k = 2;
+    nums = {10,-2,-10,-5,20}, k = 2;
+    auto ans = s.constrainedSubsetSum(nums, k);
+
+    return 0;
+}
