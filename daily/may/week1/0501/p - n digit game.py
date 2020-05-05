@@ -6,7 +6,7 @@ def solution(n, t, m, p):
         num = temp
         append_string = ""
         while num > 0:
-            append_string += hex(num % n)[2:]
+            append_string += hex(num % n)[2:].upper()
             num //= n
         full_string += append_string[::-1]
         temp += 1
