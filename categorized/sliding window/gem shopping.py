@@ -1,7 +1,7 @@
 # https://programmers.co.kr/learn/courses/30/lessons/67258
 
 def solution(gems):
-    answer, ansLen = [0, len(gems)], len(gems)
+    answer, ansLen = [0, len(gems) - 1], len(gems)
     gemCategory = set(gems)
     gemCnt = {gemIdx : 0 for gemIdx in gemCategory}
     maxGemKindCnt = len(gemCategory)
