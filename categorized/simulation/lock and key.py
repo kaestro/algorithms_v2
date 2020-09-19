@@ -63,6 +63,7 @@ def solution(key, lock):
 ### Be Cautious
 # In python, you must "Return" the value you changed
 # If you're changing the value by reassigning it.
+# https://robertheaton.com/2014/02/09/pythons-pass-by-object-reference-as-explained-by-philip-k-dick/
 def rotateKey(key):
     key = list(map(list, zip(*key[::-1])))
     return key
