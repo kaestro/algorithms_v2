@@ -2,6 +2,7 @@
 
 1. write where the problem is from
     ex) leetcode.com/abcdefg
+    * you may add name of the question too
 2. write down what type of algorithm you've used to solve it
     ex) dijkstra's algorithm
 3. write down date:
