@@ -4,11 +4,16 @@
 
 using namespace std;
 
-typedef pair<int, int> mypair;
-vector<int> petya;
+typedef long long lli;
+typedef pair<lli, lli> mypair;
+vector<lli> petya;
 
 bool comparator (const mypair& lhs, const mypair& rhs) {
     if (lhs.second > rhs.second) return true;
+
+    if (lhs.second == rhs.second && petya[lhs.first] < petya[rhs.first]) {
+        return true;
+    }
 
     return false;
 }
@@ -22,7 +27,7 @@ int main() {
         petya.clear();
 
         vector<mypair> dishes = vector<mypair>(numDishes, mypair({0, 0}));
-        int minDish = 0;
+        lli minDish = 0;
         for (int i = 0; i < numDishes; ++i) {
             cin >> dishes[i].second;
             dishes[i].first = i;
@@ -32,7 +37,7 @@ int main() {
         }
 
         petya.resize(numDishes);
-        int maxPetyaSum = 0;
+        lli maxPetyaSum = 0;
         for (int i = 0; i < numDishes; ++i) {
             cin >> petya[i];
             maxPetyaSum += petya[i];
@@ -46,8 +51,8 @@ int main() {
         sort(dishes.begin(), dishes.end(), comparator);
 
         int i = 0;
-        int petyaSum = 0;
-        int result = dishes[i].second;
+        lli petyaSum = 0;
+        lli result = dishes[i].second;
         while (i < numDishes - 1) {
             petyaSum += petya[dishes[i].first];
             if (petyaSum < dishes[i + 1].second) {
