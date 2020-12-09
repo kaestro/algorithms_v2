@@ -74,12 +74,27 @@ int main() {
 
                         col_len = max(col_len, abs(j - i));
                     }
+
+                    maxSize = max(maxSize, row_len * col_len);
                 } else {
                     row_len = row.back() - row.front();
                     col_len = max(i - 0, n - i - 1);
+                    maxSize = max(maxSize, row_len * col_len);
+
+                    if (points.pointsCnt != row.size()) {
+                        row_len = max(row.back(), n - row.front() - 1);
+                        col_len = 0;
+                        
+                        for (int j = 0; j < n; ++j) {
+                            if (points.pointsByRow[j].empty()) continue;
+
+                            col_len = max(col_len, abs(j - i));
+                        }
+
+                        maxSize = max(maxSize, row_len * col_len);
+                    }
                 }
 
-                maxSize = max(maxSize, row_len * col_len);
             }
 
             for (int i = 0; i < n; ++i) {
@@ -96,17 +111,36 @@ int main() {
 
                         col_len = max(col_len, abs(j - i));
                     }
+
+                    maxSize = max(maxSize, row_len * col_len);
                 } else {
                     row_len = row.back() - row.front();
                     col_len = max(i - 0, n - i - 1);
+                    maxSize = max(maxSize, row_len * col_len);
+
+                    if (points.pointsCnt != row.size()) {
+                        row_len = max(row.back(), n - row.front() - 1);
+                        col_len = 0;
+                        
+                        for (int j = 0; j < n; ++j) {
+                            if (points.pointsByCol[j].empty()) continue;
+
+                            col_len = max(col_len, abs(j - i));
+                        }
+
+                        maxSize = max(maxSize, row_len * col_len);
+                    }
                 }
 
-                maxSize = max(maxSize, row_len * col_len);
             }
 
             ans.push_back(maxSize);
         }
-        continue;
+
+        for (auto num : ans) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
     return 0;
 }
