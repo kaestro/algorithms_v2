@@ -37,8 +37,9 @@ class Solution:
         minCost = None
         for job in que:
             neighborhood, lastColor, totalCost = job
-            if minCost is None or minCost > totalCost:
-                minCost = totalCost
+            if target == neighborhood:
+                if minCost is None or minCost > totalCost:
+                    minCost = totalCost
         
         return minCost if minCost is not None else -1
 
